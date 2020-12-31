@@ -116,11 +116,11 @@ async function starts() {
 			const isCmd = body.startsWith(prefix)
 
 			mess = {
-				wait: '⌛ Sedang di Prosess ⌛',
-				success: '✔️ Berhasil ✔️',
+				wait: '⌛ Atualmente em processo ⌛',
+				success: '✔️ Sucesso ✔️',
 				error: {
-					stick: '❌ Gagal, terjadi kesalahan saat mengkonversi gambar ke sticker ❌',
-					Iv: '❌ Link tidak valid ❌'
+					stick: '❌ Falha, ocorreu um erro ao converter a imagem em adesivo ❌',
+					Iv: '❌ Link inválido ❌'
 				},
 				only: {
 					group: '❌ Perintah ini hanya bisa di gunakan dalam group! ❌',
@@ -132,7 +132,7 @@ async function starts() {
 			}
 
 			const botNumber = client.user.jid
-			const ownerNumber = ["6285892766102@s.whatsapp.net"] // replace this with your number
+			const ownerNumber = ["558381111340@s.whatsapp.net"] // replace this with your number
 			const isGroup = from.endsWith('@g.us')
 			const sender = isGroup ? mek.participant : mek.key.remoteJid
 			const groupMetadata = isGroup ? await client.groupMetadata(from) : ''
@@ -246,7 +246,7 @@ async function starts() {
 								console.log(`Error : ${err}`)
 								fs.unlinkSync(media)
 								tipe = media.endsWith('.mp4') ? 'video' : 'gif'
-								reply(`❌ Gagal, pada saat mengkonversi ${tipe} ke stiker`)
+								reply(`❌ Falha ao converter ${tipe} ke stiker`)
 							})
 							.on('end', function () {
 								console.log('Finish')
